@@ -1,4 +1,10 @@
 fun.postgres_connect <- function(db.name, db.host, db.user){
+  #DECRIPTION: Creates a connection to a PostgreSQL Server
+  #ARGUMENTS: 
+    #db.name = The name of the database to connect to
+    #db.host = The host ("localhost" or IP Address)
+    #db.user = The name of the user to connect with
+  
   require(RPostgreSQL)
   
   #Set the connection drive for PostgreSQL
@@ -10,10 +16,10 @@ fun.postgres_connect <- function(db.name, db.host, db.user){
   #Create Connection
   db.con <- 
     dbConnect(db.drv, 
-              dbname = db.name, 
-              host = db.host, 
+              dbname = as.character(db.name), 
+              host = as.character(db.host), 
               port = 5432, 
-              user = db.user, 
+              user = as.character(db.user), 
               password = db.pw)
   
   #Clear the pasword entered above
