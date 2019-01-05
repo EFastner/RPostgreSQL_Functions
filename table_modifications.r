@@ -5,23 +5,36 @@ fun.create_table <- function(connection){
   
   require(RPostgreSQL)
   
-  sql_command <- "CREATE TABLE game_results
+  sql_command <- "CREATE TABLE skater_stats
 (
-  season CHAR (255),
-  session VARCHAR (255),
-  game_date date,
-  game_id CHAR (255),
-  game_period CHAR (255),
-  home_team VARCHAR (255),
-  away_team VARCHAR (255),
-  home_score CHAR (255),
-  away_score CHAR (255),
-  home_points CHAR (255), 
-  away_points CHAR (255),
-  home_game_num CHAR (255),
-  home_point_total CHAR (255),
-  away_game_num CHAR (255),
-  away_point_total CHAR (255)
+  player VARCHAR (255),
+  team VARCHAR (3),
+  season CHAR (8),
+  game_id CHAR (10),
+  TOI CHAR (255),
+  G CHAR (255),
+  A1 CHAR (255),
+  A2 CHAR (255),
+  A CHAR (255),
+  P CHAR (255),
+  P1 CHAR (255),
+  FOW CHAR (255),
+  FOT CHAR (255),
+  FOL CHAR (255),
+  SOG CHAR (255),
+  iCF CHAR (255),
+  HITS CHAR (255),
+  BLK CHAR (255),
+  PEND CHAR (255),
+  PENT CHAR (255),
+  CF CHAR (255),
+  CA CHAR (255),
+  CF_5v5 CHAR (255),
+  CA_5v5 CHAR (255),
+  GF_5v5 CHAR (255),
+  GA_5v5 CHAR (255),
+  FO_PER CHAR (255),
+  GS CHAR (255)
 );"
   
   dbGetQuery(connection, sql_command)  
