@@ -6,12 +6,13 @@ fun.postgres_connect <- function(db.name, db.host, db.user){
     #db.user = The name of the user to connect with
   
   require(RPostgreSQL)
+  require(getPass)
   
   #Set the connection drive for PostgreSQL
   db.drv <- dbDriver("PostgreSQL")
   
   #Prompt for Password
-  db.pw <- readline(prompt = "Enter your Password: ")
+  db.pw <- getPass(msg = "Enter your Password: ", noblank = FALSE)
   
   #Create Connection
   db.con <- 
